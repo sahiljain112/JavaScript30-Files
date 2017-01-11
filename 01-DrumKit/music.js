@@ -4,7 +4,7 @@
   const buttonRecord = document.querySelector('.button-record')
   const buttonStop = document.querySelector('.button-stop')
   const buttonPlay = document.querySelector('.button-play')
-  const USER_DEFINED_TIME_INTERVAL = 100
+  const USER_DEFINED_TIME_INTERVAL = 400
   let recordSequence = [],
     intervalArray = [],
     timeGap = [],
@@ -22,13 +22,16 @@
   }
 
   const setAudio = (element) => {
-    sleepTimer = sleepTimer + timeGap[index % timeGap.length]
+    sleepTimer = timeGap[index % timeGap.length]
+    index = index + 1
+    console.log('Index',index % recordSequence.length)
+    const audioElement = recordSequence[index % recordSequence.length]
+
     sleepPromise(sleepTimer).then(() => {
       playAudio(element)
+      setAudio(audioElement)
     })
 
-    index = index + 1
-    console.log('Sleep timer', sleepTimer)
   }
 
   buttonRecord.onclick = () => {
@@ -54,10 +57,10 @@
     audioDuration = parseInt((audioDuration * 1000), 10)
     console.log(audioDuration)
     console.log('Record Seq', recordSequence)
-    setAudio(audioElement)
-    recordSequence.forEach((audioElement) => {
-      intervalArray.push(setInterval(setAudio.bind(null, audioElement), audioElement.duration))
-    })
+    setAudio(recordSequence[0])
+    // recordSequence.forEach((audioElement) => {
+    //   intervalArray.push(setInterval(setAudio.bind(null, audioElement), audioElement.duration))
+    // })
     console.log('Exited Button Play')
   }
 
