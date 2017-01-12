@@ -1,0 +1,42 @@
+html {
+  font-size: 10px;
+}
+body {
+  text-align: center;
+}
+
+body {
+  background: #193549;
+  color: white;
+  font-family: 'helvetica neue', sans-serif;
+  font-weight: 100;
+  font-size: 5rem;
+}
+
+.controls {
+  margin-bottom: 5rem;
+}
+
+input {
+  width: 10rem;
+}
+
+:root {
+  --padding: 10px;
+  --base: #ffc600;
+  --blur: 10px;
+}
+
+img {
+  -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+  max-width: 600px;
+  background: var(--base);
+  padding: var(--padding);
+  filter: blur(var(--blur));
+}
+
+.hl {
+  color: var(--base);
+}
