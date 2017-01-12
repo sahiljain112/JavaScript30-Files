@@ -18,6 +18,13 @@ body,html {
   justify-content: center;
 }
 
+.disabled {
+  cursor: not-allowed;
+  background-color: dimgrey;
+  color: black;
+  border: .2rem solid dimgrey;
+}
+
 .key {
   text-align: center;
   width: 10rem;
