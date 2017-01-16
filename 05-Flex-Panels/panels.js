@@ -1,7 +1,7 @@
 
 (function () {
   console.log('Inside panel.js')
-  const panels = document.querySelctorAll('.panel')
+  const panels = document.querySelectorAll('.panel')
   console.log('All panels', panels)
 
   function endTransition (e) {
