@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Code generator</title>
+</head>
+<body>
+  <script type='text/javascript' src='https://cornify.com/js/cornify.js'></script>
+  <script>
+
+    const pressedSequence = []
+    const secretCode = 'hello'
+
+    const handleKey = (e) => {
+      console.log(e.key)
+      pressedSequence.push(e.key)
+
+
+      pressedSequence.splice(-(secretCode.length) - 1 , pressedSequence.length - secretCode.length)
+      console.log(pressedSequence)
+      if(pressedSequence.join('').includes(secretCode))
+        cornify_add()
+    }
+
+    window.addEventListener('keyup', e => handleKey(e))
+  </script>
+</body>
+</html>
