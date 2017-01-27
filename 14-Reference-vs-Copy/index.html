@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Reference VS Copy</title>
+</head>
+<body>
+
+  <script>
+    // start with strings, numbers and booleans
+    let age  = 100, age2 = age
+
+    console.log(age, age2)
+    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+
+    const players2 = [...players]
+    players2[1] = 'Dude'
+    const players3 = Array.from(players2)
+
+    console.log(players, players2, players3)
+
+    const person = {
+      name: 'John',
+      age: 19
+    }
+
+    const person2 = Object.assign({}, person, { age: 13})
+    console.log(person2)
+
+    // The poor man's deep clone
+    const person3 = JSON.parse(JSON.stringify(person))
+    console.log(person3)
+    
+  </script>
+
+</body>
+</html>
